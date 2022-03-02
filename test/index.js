@@ -5,24 +5,24 @@
 var should = require('chai').should(); // eslint-disable-line
 
 describe('Sass renderer', function () {
-  var ctx = {
+  const ctx = {
     config: {},
     theme: {
       config: {}
     }
   }
 
-  var r = require('../lib/renderer')
+  const r = require('../lib/renderer')
 
   it('default: scss syntax', function () {
-    var body = [
+    const body = [
       '$color: red;',
       '.foo {',
       '  color: $color;',
       '}'
     ].join('\n')
 
-    var result = r('scss').call(ctx, { text: body }, {})
+    const result = r('scss').call(ctx, { text: body }, {})
     result.should.eql([
       '.foo {',
       '  color: red; }'
@@ -30,13 +30,13 @@ describe('Sass renderer', function () {
   })
 
   it('default: sass syntax', function () {
-    var body = [
+    const body = [
       '$color: red',
       '.foo',
       '  color: $color'
     ].join('\n')
 
-    var result = r('sass').call(ctx, { text: body }, {})
+    const result = r('sass').call(ctx, { text: body }, {})
     result.should.eql([
       '.foo {',
       '  color: red; }'
@@ -46,14 +46,14 @@ describe('Sass renderer', function () {
   it('outputStyle compressed: scss syntax', function () {
     ctx.theme.config = { node_sass: { outputStyle: 'compressed' } }
 
-    var body = [
+    const body = [
       '$color: red;',
       '.foo {',
       '  color: $color;',
       '}'
     ].join('\n')
 
-    var result = r('scss').call(ctx, { text: body }, {})
+    const result = r('scss').call(ctx, { text: body }, {})
     result.should.eql([
       '.foo{color:red}'
     ].join('\n') + '\n')
@@ -62,13 +62,13 @@ describe('Sass renderer', function () {
   it('outputStyle compressed: sass syntax', function () {
     ctx.theme.config = { node_sass: { outputStyle: 'compressed' } }
 
-    var body = [
+    const body = [
       '$color: red',
       '.foo',
       '  color: $color'
     ].join('\n')
 
-    var result = r('sass').call(ctx, { text: body }, {})
+    const result = r('sass').call(ctx, { text: body }, {})
     result.should.eql([
       '.foo{color:red}'
     ].join('\n') + '\n')
@@ -78,14 +78,14 @@ describe('Sass renderer', function () {
     ctx.config = { node_sass: { outputStyle: 'compressed' } }
     ctx.theme.config = {}
 
-    var body = [
+    const body = [
       '$color: red;',
       '.foo {',
       '  color: $color;',
       '}'
     ].join('\n')
 
-    var result = r('scss').call(ctx, { text: body }, {})
+    const result = r('scss').call(ctx, { text: body }, {})
     result.should.eql([
       '.foo{color:red}'
     ].join('\n') + '\n')
@@ -95,13 +95,13 @@ describe('Sass renderer', function () {
     ctx.config = { node_sass: { outputStyle: 'compressed' } }
     ctx.theme.config = {}
 
-    var body = [
+    const body = [
       '$color: red',
       '.foo',
       '  color: $color'
     ].join('\n')
 
-    var result = r('sass').call(ctx, { text: body }, {})
+    const result = r('sass').call(ctx, { text: body }, {})
     result.should.eql([
       '.foo{color:red}'
     ].join('\n') + '\n')
@@ -111,7 +111,7 @@ describe('Sass renderer', function () {
     ctx.theme.config = { node_sass: { outputStyle: 'compressed' } }
     ctx.config = {}
 
-    var body = [
+    const body = [
       '.foo {',
       '  color: $color;',
       '}'
@@ -126,7 +126,7 @@ describe('Sass renderer', function () {
     ctx.theme.config = { node_sass: { outputStyle: 'compressed' } }
     ctx.config = {}
 
-    var body = [
+    const body = [
       '.foo',
       '  color: $color'
     ].join('\n')

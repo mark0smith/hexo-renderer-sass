@@ -1,6 +1,22 @@
 [Sass] renderer plugin for [Hexo]
 =================================
 
+## Modification from mark0smith
+
+Because of original package not being maintained currently, I update the requirement libs and run `standard --fix`.
+
+If you want to use my version of `hexo-renderer-sass`, you can run following code:
+``` bash
+git clone https://github.com/mark0smith/hexo-renderer-sass.git
+cd hexo-renderer-sass
+npm link
+cd Some_hexo_blog
+npm link --save hexo-renderer-sass
+```
+
+Now you can use `hexo-renderer-sass` and happy bloging!
+
+## Original
 [![npm version](https://badge.fury.io/js/hexo-renderer-sass.svg)](https://badge.fury.io/js/hexo-renderer-sass)
 [![Build Status](https://travis-ci.org/knksmith57/hexo-renderer-sass.svg?branch=master)](https://travis-ci.org/knksmith57/hexo-renderer-sass)
 [![Coverage Status](https://coveralls.io/repos/github/knksmith57/hexo-renderer-sass/badge.svg?branch=master)](https://coveralls.io/github/knksmith57/hexo-renderer-sass?branch=master)
