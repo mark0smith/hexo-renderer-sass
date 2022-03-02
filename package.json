@@ -18,21 +18,21 @@
   "scripts": {
     "lint": "standard",
     "test": "mocha test/index.js",
-    "test-cov": "istanbul cover --print both _mocha -- test/index.js"
+    "test-cov": "nyc cover --print both _mocha -- test/index.js"
   },
   "engines": {
     "node": ">= 6"
   },
   "dependencies": {
-    "node-sass": "^4.5.3"
+    "node-sass": "^7.0.0"
   },
   "peerDependencies": {
-    "hexo": ">= 3"
+    "hexo": ">= 6"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "standard": "^8.6.0"
+    "chai": "^4.3.6",
+    "nyc": "^15.1.0",
+    "mocha": "^9.2.1",
+    "standard": "^16.0.4"
   }
 }
